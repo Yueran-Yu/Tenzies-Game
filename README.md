@@ -45,4 +45,6 @@ const App = () => {
 - Snippet 1 is Hoisting.
 - It is called HOISTING - Invoking (calling) a function before it has been defined.
 
+[Read More: Why can I use a function before it's defined in JavaScript?](https://stackoverflow.com/questions/261599/why-can-i-use-a-function-before-its-defined-in-javascript#:~:text=Is%20hoisting%20actually%20%22calling%20the,it's%20declared%2C%20and%20that's%20hoisting.)
+
 
