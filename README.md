@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+### Learning something
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Snippet 1:
 
-## Available Scripts
+```typescript
+const App = () => {
+	const [dice, setDice] = useState(allNewDice())
 
-In the project directory, you can run:
+	function allNewDice() {
+		let arr = []
+		for (let i = 0; i < 10; i++) {
+			const randomNum = Math.ceil(Math.random() * 6)
+			arr.push(randomNum)
+		}
+		return arr
+	}
+}
+```
 
-### `npm start`
+#### Snippet 2:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```typescript
+const App = () => {
+	const allNewDice: NewDiceProps = () => {
+		let arr = []
+		for (let i = 0; i < 10; i++) {
+			const randomNum = Math.ceil(Math.random() * 6)
+			arr.push(randomNum)
+		}
+		return arr
+	}
+	const [dice, setDice] = useState(allNewDice())
+}
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- When using Snippet 2 (the arrow function) we can't put the allNewDice function above the useState hook, it will show
+  the error message:
 
-### `npm test`
+```
+    TS2448: Block-scoped variable 'allNewDice' used before its declaration.  
+    App.tsx(13, 8): 'allNewDice' is declared here.
+    TS2454: Variable 'allNewDice' is used before being assigned.
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Snippet 1 is Hoisting.
+- It is called HOISTING - Invoking (calling) a function before it has been defined.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
