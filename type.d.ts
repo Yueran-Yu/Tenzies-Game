@@ -1,7 +1,11 @@
-interface NewDiceProps {
-	():number[]
+interface DieProps {
+	id: string
+	value: number
+	isHeld: boolean
+	handleHeld: (id:string)=>void
 }
 
-interface DieProps{
-	value:number
+interface NewDiceProps{
+	(): DieProps[]
 }
+

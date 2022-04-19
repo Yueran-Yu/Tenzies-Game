@@ -1,10 +1,11 @@
-import React from 'react';
-import { DieFace, DieNum } from './styles';
+import React, {FC} from 'react';
+import {DieFace, DieNum} from './styles';
 
-const DieComponent = ({value}: DieProps) => {
+const DieComponent: FC<DieProps> = ({id, value, isHeld, handleHeld}) => {
+
 	return (
-		<DieFace>
-		 <DieNum>{value}</DieNum>
+		<DieFace isHeld={isHeld} onClick={() => handleHeld(id)}>
+			<DieNum>{value}</DieNum>
 		</DieFace>
 	)
 }
